@@ -3,6 +3,7 @@ import "./styles.css"
 import { Route, Routes } from "react-router"
 import { Link } from "react-router-dom"
 import Dashboard from "./pages/Dashboard"
+import PersonProfile from "./pages/PersonProfile"
 export default function App() {
   const [hiredPeople, setHiredPeople] = useState([])
 
@@ -18,7 +19,8 @@ export default function App() {
       </header>
       <Routes>
         <Route path="/" />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard hiredPeople={hiredPeople}/>} />
+        <Route path="/dashboard/view/:id" element={<PersonProfile hiredPeople={hiredPeople} setHiredPeople={setHiredPeople} />}  />
       </Routes>
     </>
   )

@@ -1,12 +1,24 @@
 import { useState } from "react"
+import { useNavigate} from "react-router-dom"
 
-function HireForm(props) {
+function HireForm({hiredPeople, setHiredPeople, person}) {
+
+  const navigate = useNavigate()
+
   const [wage, setWage] = useState(0)
+  console.log(person)
 
   function handleSubmit(event) {
-    event.preventDefault()
-  }
+    event.preventDefault();
 
+    const duplicates = hiredPeople.find(hiredPerson=> hiredPerson.name === person.name)
+    if (duplicates === undefined){
+      hiredPeople.push(person)
+    } 
+    setHiredPeople(hiredPeople)
+
+    navigate("/dashboard")
+}
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="wage">Wage Offer</label>

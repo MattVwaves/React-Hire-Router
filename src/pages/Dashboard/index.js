@@ -8,11 +8,11 @@ function Dashboard(props) {
   const [people, setPeople] = useState([])
 
   useEffect(() => {
-    fetch('https://randomuser.me/api/')
+    fetch('https://randomuser.me/api/?results=50')
     .then((res) => res.json())
-    .then((person) => setPeople(person))
+    .then((person) => setPeople(person.results))
   }, [])
-  console.log('hey')
+  console.log(people)
 
   return (
     <main className="dashboard-layout">
