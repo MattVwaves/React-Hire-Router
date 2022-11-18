@@ -13,7 +13,8 @@ function HireForm({hiredPeople, setHiredPeople, person}) {
 
     const duplicates = hiredPeople.find(hiredPerson=> hiredPerson.name === person.name)
     if (duplicates === undefined){
-      hiredPeople.push(person)
+      const newPerson = {...person, wage: wage}
+      hiredPeople.push(newPerson)
     } 
     setHiredPeople(hiredPeople)
 

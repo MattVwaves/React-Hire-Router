@@ -26,7 +26,7 @@ function PersonProfile({hiredPeople, setHiredPeople}) {
 
   return (
     <article>
-      <h2>fff
+      <h2>
         {person.name.first} {person.name.last}
       </h2>
       <HireForm person={person} hiredPeople={hiredPeople} setHiredPeople={setHiredPeople} />
